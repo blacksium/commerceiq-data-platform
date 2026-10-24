@@ -1,0 +1,44 @@
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Downloaded and generated data
+data/
+logs/
+*.log
+
+# dbt generated files and local connection settings
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+profiles.yml
+
+# Local database files
+postgres-data/
+
+# Terraform generated files and state
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+crash.log
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
