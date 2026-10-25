@@ -63,3 +63,72 @@ one of these identifiers repeats.
 Reports requiring one row per order must apply a documented review
 selection or aggregation rule before joining.
 
+
+## Source relationship checks
+
+All six checked relationships had zero blank references and zero
+orphan rows:
+
+- Orders to customers.
+- Order items to orders.
+- Order items to products.
+- Order items to sellers.
+- Payments to orders.
+- Reviews to orders.
+
+These checks establish child-to-parent validity for the current files.
+They do not establish that every order has related detail records.
+
+## Order detail coverage
+
+### Orders without items
+
+775 orders have no item records:
+
+- unavailable: 603
+- canceled: 164
+- created: 5
+- invoiced: 2
+- shipped: 1
+
+Preserve these orders. Investigate the shipped and invoiced records
+before deciding on status-specific quality rules.
+
+No delivered orders were missing item records in this check.
+
+### Orders without payments
+
+1 delivered order has no payment record.
+
+Flag it for reconciliation review. Missing source data does not prove
+that payment was not made.
+
+Preserve a missing-payment flag rather than treating absence as a
+confirmed payment value of zero.
+
+### Orders without reviews
+
+768 orders have no review records:
+
+- delivered: 646
+- shipped: 75
+- canceled: 20
+- unavailable: 14
+- processing: 6
+- invoiced: 5
+- created: 2
+
+Preserve these orders in order reporting.
+
+Calculate review metrics using available valid reviews and disclose
+review coverage. Do not assume the reason a review is absent.
+
+## Join design implications
+
+Use joins appropriate to the reporting population.
+
+An inner join can silently exclude orders with missing details.
+A left join preserves orders but requires explicit missing-data handling.
+
+Aggregate item, payment, and review details to the required grain
+before combining them into an order-level report.
