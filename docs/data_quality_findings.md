@@ -154,3 +154,29 @@ Handling:
 - Keep the original category label.
 - Distinguish missing source categories from missing translations.
 - Record any future manual translations in a separate documented mapping.
+
+
+## Remaining validation work
+
+Initial discovery covered row counts, blank values, candidate keys,
+six source relationships, order detail coverage, and category
+translation coverage.
+
+The following checks remain for later validation work:
+
+- Parse timestamps and investigate impossible event sequences.
+- Validate monetary values, installments, scores, and physical dimensions.
+- Check customer and seller ZIP coverage against geography.
+- Investigate full-row duplicates in geography.
+- Inspect canceled orders with delivery timestamps.
+- Inspect shipped and invoiced orders without items.
+- Investigate the delivered order without a payment record.
+- Define review selection or aggregation rules for order-level reports.
+- Confirm source timezone and monetary-unit conventions before
+  publishing related metrics.
+
+Proposed data types and handling rules are not proof that source
+values satisfy them.
+
+These limitations must be considered when implementing ingestion,
+transformations, and reporting.
