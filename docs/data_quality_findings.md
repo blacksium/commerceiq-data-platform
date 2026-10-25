@@ -132,3 +132,25 @@ A left join preserves orders but requires explicit missing-data handling.
 
 Aggregate item, payment, and review details to the required grain
 before combining them into an order-level report.
+
+
+## Category translation coverage
+
+Products checked: 32,951.
+
+- Matching category translation: 32,328 products.
+- Missing source category: 610 products.
+- Nonblank category without a translation: 13 products.
+
+Unmatched source categories:
+
+- portateis_cozinha_e_preparadores_de_alimentos: 10 products.
+- pc_gamer: 3 products.
+
+The three outcome groups reconcile to the total product count.
+
+Handling:
+- Preserve all products during translation enrichment using a left join.
+- Keep the original category label.
+- Distinguish missing source categories from missing translations.
+- Record any future manual translations in a separate documented mapping.
