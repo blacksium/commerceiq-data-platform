@@ -56,7 +56,7 @@ def validate_csv(file_path):
             row_count += 1
 
     if row_count == 0:
-        raise ValueError("The orders CSV contains no data records.")
+        raise ValueError("The customers CSV contains no data records.")
 
     return row_count
 
