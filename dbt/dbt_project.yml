@@ -1,0 +1,20 @@
+name: commerceiq
+version: "1.0.0"
+config-version: 2
+
+profile: commerceiq
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  commerceiq:
+    staging:
+      +materialized: view
+
+vars:
+  orders_batch_id: "1e096731-6109-4be2-8b62-7ad230f79f38"

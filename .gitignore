@@ -25,6 +25,9 @@ dbt/target/
 dbt/dbt_packages/
 dbt/logs/
 profiles.yml
+dbt/target/
+dbt/dbt_packages/
+logs/
 
 # Local database files
 postgres-data/
@@ -42,3 +45,9 @@ crash.log
 .vscode/
 .idea/
 .DS_Store
+
+# Track the project profile with environment-variable references
+!/dbt/profiles.yml
+
+# Ignore dbt's generated user settings
+/dbt/.user.yml
