@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Customer records from the configured raw batch.
+      Source fields remain text; blanks become NULL.
+
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_unique_id
+        data_tests:
+          - not_null
+
+      - name: customer_zip_code_prefix
+        data_tests:
+          - not_null
+
+      - name: customer_city
+        data_tests:
+          - not_null
+
+      - name: customer_state
+        data_tests:
+          - not_null

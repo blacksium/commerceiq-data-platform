@@ -18,3 +18,4 @@ models:
 
 vars:
   orders_batch_id: "1e096731-6109-4be2-8b62-7ad230f79f38"
+  customers_batch_id: "85e5723d-b95e-48c6-8a95-8ac0e23d316f"
